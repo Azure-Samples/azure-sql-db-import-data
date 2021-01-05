@@ -1,0 +1,23 @@
+{
+  "_id": "5fed1b38309495de1bc4f653",
+  "firstName": "Sims",
+  "lastName": "Arnold",
+  "isAlive": false,
+  "age": 35,
+  "address": {
+    "streetAddress": "Sumner Place",
+    "city": "Canoochee",
+    "state": "Palau",
+    "postalCode": 1558
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "+1 (830) 465-2965"
+    },
+    {
+      "type": "home",
+      "number": "+1 (889) 439-3632"
+    }
+  ]
+}

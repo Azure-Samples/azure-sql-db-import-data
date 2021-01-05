@@ -1,0 +1,7 @@
+Video Games CSV File
+From the CORGIS Dataset Project
+By Austin Cory Bart acbart@vt.edu
+
+Downloaded from:
+https://corgis-edu.github.io/corgis/csv/video_games/
+

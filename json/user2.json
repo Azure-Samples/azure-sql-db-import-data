@@ -1,0 +1,27 @@
+{
+  "_id": "5fed1b4a9edd01ce6faa1481",
+  "firstName": "Ester",
+  "lastName": "Camacho",
+  "isAlive": false,
+  "age": 15,
+  "address": {
+    "streetAddress": "Evergreen Avenue",
+    "city": "Villarreal",
+    "state": "Nebraska",
+    "postalCode": 2580
+  },
+  "phoneNumbers": [
+    {
+      "type": "work",
+      "number": "+1 (811) 411-3710"
+    },
+    {
+      "type": "mobile",
+      "number": "+1 (983) 463-3785"
+    },
+    {
+      "type": "home",
+      "number": "+1 (959) 505-3471"
+    }
+  ]
+}

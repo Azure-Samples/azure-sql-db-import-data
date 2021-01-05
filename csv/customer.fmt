@@ -1,0 +1,11 @@
+14.0
+8
+1	SQLCHAR	0	50		"|"        	1     C_CUSTKEY			""
+2   SQLCHAR 0   50  	"|"        	2     C_NAME            ""
+3   SQLCHAR 0   50      "|"        	3     C_ADDRESS         ""
+4   SQLCHAR 0   50      "|"        	4     C_NATIONKEY       ""
+5   SQLCHAR 0   50      "|"        	5     C_PHONE           ""
+6   SQLCHAR 0   50      "|"        	6     C_ACCTBAL         ""
+7   SQLCHAR 0   50      "|"        	7     C_MKTSEGMENT      ""
+8   SQLCHAR 0   200    	"|\r\n"    	8     C_COMMENT         ""
+

@@ -1,13 +1,6 @@
-## [project-title] Changelog
+# Azure SQL DB Import Data Samples
 
-<a name="x.y.z"></a>
-# x.y.z (yyyy-mm-dd)
+<a name="1.0.0"></a>
+## 1.0.0 (2021-01-05)
 
-*Features*
-* ...
-
-*Bug Fixes*
-* ...
-
-*Breaking Changes*
-* ...
+First Release

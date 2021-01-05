@@ -1,0 +1,19 @@
+{
+  "_id": "5fed1b5d93edd75c4ab847f8",
+  "firstName": "Francesca",
+  "lastName": "Hurst",
+  "isAlive": false,
+  "age": 16,
+  "address": {
+    "streetAddress": "Fleet Place",
+    "city": "Baker",
+    "state": "Mississippi",
+    "postalCode": 4918
+  },
+  "phoneNumbers": [
+    {
+      "type": "mobile",
+      "number": "+1 (923) 410-3051"
+    }
+  ]
+}
