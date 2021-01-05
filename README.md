@@ -1,6 +1,30 @@
+---
+page_type: sample
+languages:
+- tsql
+- sql
+- json
+products:
+- azure
+- azure-sql-database
+- azure-data-factory
+- azure-databricks
+- azure-hdinsight
+description: "Samples on how to import data (JSON, CSV, Flat-Files, etc) into Azure SQL"
+urlFragment: "azure-sql-db-import-data-samples"
+---
+
+<!-- 
+Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+
+Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+
+Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
+-->
+
 # Azure SQL DB Import Data Samples
 
-Samples on how to import data (JSON, CSV, Flat-Files) into Azure SQL
+Samples on how to import data (JSON, CSV, Flat-Files, etc) into Azure SQL
 
 All samples are in the `script` folder. Sample data used for running the samples is in `json` and `csv` folder.
 
