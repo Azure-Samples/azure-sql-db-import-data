@@ -40,18 +40,24 @@ Sample is here: `03-bulkinsert-openrowset.sql`
 
 ## Use Write-DbaDbTableData 
 
-If you are a Powershell user, you can use the Write-DbaDbTableData cmdlet made available by the amazing [dbatools]() project.
+If you are a Powershell user, you can use the Write-DbaDbTableData cmdlet made available by the amazing [dbatools](https://docs.dbatools.io/#Write-DbaDbTableData) project.
 
 Sample is available in the `01-import-csv.ps1` script.
 
 ## Additional Resources
-TDB
+
+Of course there are more ways to import (and export) data into Azure SQL. Here's the most common one 
 
 ### Azure Data Factory
-TDB
+
+The easiest option, also with great performances. It [supports a variety of different data sources](https://docs.microsoft.com/en-us/azure/data-factory/supported-file-formats-and-compression-codecs ), not only CSV and JSON, but also Parquet, AVRO, ORC and so on.
+
+The [Copy Data](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-copy-data-tool) tool guides you through the entire process of importing data with an easy-to-follow, wizard-style, interface.
 
 ### Apache Spark
-TDB
+
+Apache Spark is another option if you need more flexibility. It can read from almost any data format, and it can efficiently write data into Azure SQL. Full end-to-end sample on how to import data as fast as possible here: [Fast Data Loading in Azure SQL DB using Azure Databricks](https://github.com/Azure-Samples/azure-sql-db-databricks/tree/main/)
 
 ### Azure Synapse
-TDB
+
+Azure Synapse is another way to read common data formats, like Parquet or sets of CSVs from Azure SQL, using Azure Synapse Serverless SQL Pools as a bridge. Here's a detailed article on how to do that: [Azure SQL can read Azure Data Lake storage files using Synapse SQL external tables](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/)
