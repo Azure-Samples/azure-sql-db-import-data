@@ -10,7 +10,7 @@ products:
 - azure-data-factory
 - azure-databricks
 description: "Samples on how to import data (JSON, CSV, Flat-Files, etc) into Azure SQL"
-urlFragment: "azure-sql-db-import-data-samples"
+urlFragment: azure-sql-db-import-data-samples
 ---
 
 <!-- 
