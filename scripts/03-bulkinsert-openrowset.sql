@@ -19,18 +19,18 @@ go
 
 -- Store the SAS Token (WITHOUT leadeing "?")
 -- It can be easily generated using Azure Storage Explorer or AZ CLI or Powershell or Portal
-create database scoped credential [dmstore1_misc]
+create database scoped credential [dmstore2_misc]
 with identity = 'SHARED ACCESS SIGNATURE',
-secret = 'sv=2019-12-12&st=2021-01-04T20%3A56%3A47Z&se=2021-01-05T20%3A56%3A47Z&sr=c&sp=rl&sig=b5N5RrJJm44A7gbvQVfmAwiu3Gvt2Umv6RX3bmcy%2B1U%3D';
+secret = 'sv=2019-12-12&st=2021-01-28T21%3A51%3A25Z&se=2021-01-29T21%3A51%3A25Z&sr=c&sp=rl&sig=FsP21W4VzgJNCkrGrdicBhsjmeD7nwGZpzpJLlAoZ7A%3D';
 go
 
 -- Create the data source
-create external data source [dmstore1_misc]
+create external data source [dmstore2_misc]
 with 
 ( 
 	type = blob_storage,
- 	location = 'https://dmstore1.blob.core.windows.net/misc',
- 	credential= [dmstore1_misc]
+ 	location = 'https://dmstore2.blob.core.windows.net/misc',
+ 	credential = [dmstore2_misc]
 );
 go
 
@@ -43,7 +43,7 @@ go
 select 
 	cast(bulkcolumn as nvarchar(max)) as jsondata 
 from 
-	openrowset(bulk 'import-demo/user1.json', data_source = 'dmstore1_misc', single_clob) as azureblob
+	openrowset(bulk 'import-demo/user1.json', data_source = 'dmstore2_misc', single_clob) as azureblob
 go
 
 -- Read and access the content of the JSON file
@@ -52,7 +52,7 @@ with cte as
 	select 
 		cast(bulkcolumn as nvarchar(max)) as jsondata 
 	from 
-		openrowset(bulk 'import-demo/user1.json', data_source = 'dmstore1_misc', single_clob) as azureblob
+		openrowset(bulk 'import-demo/user1.json', data_source = 'dmstore2_misc', single_clob) as azureblob
 )
 select
 	j.*
@@ -62,13 +62,37 @@ cross apply
 	openjson(cte.jsondata) j
 go
 
+-- Read and access the content of the JSON file, with schema-on-read
+with cte as 
+(
+	select 
+		cast(bulkcolumn as nvarchar(max)) as jsondata 
+	from 
+		openrowset(bulk 'import-demo/user1.json', data_source = 'dmstore2_misc', single_clob) as azureblob
+)
+select
+	j.*
+from
+	cte
+cross apply 
+	openjson(cte.jsondata) with
+	(
+		firstName nvarchar(50),
+		lastName nvarchar(50),
+		isAlive bit,
+		age int,
+		[address] nvarchar(max) as json,
+		phoneNumbers nvarchar(max) as json
+	) j
+go
+
 -- What if source is a list of json rows?
 with cte as
 (
 select 
 	cast(bulkcolumn as nvarchar(max)) as jsondata 
 from 
-	openrowset(bulk 'import-demo/users.json', data_source = 'dmstore1_misc', single_clob) as azureblob
+	openrowset(bulk 'import-demo/users.json', data_source = 'dmstore2_misc', single_clob) as azureblob
 )
 select
 	s.[value] as jsonrow
@@ -100,10 +124,10 @@ go
 
 -- Import data
 -- Data types will be inferred from table schema
-bulk insert dbo.[CUSTOMER]
+bulk insert dbo.[customer]
 from 'import-demo/customer.tbl' 
 with (
-	data_source = 'dmstore1_misc',
+	data_source = 'dmstore2_misc',
 	codepage = '65001',
 	fieldterminator = '|',
 	rowterminator = '|\n'
@@ -120,9 +144,9 @@ select
 	*
 from 
 	openrowset(bulk 'import-demo/customer.tbl', 
-		data_source = 'dmstore1_misc', 
+		data_source = 'dmstore2_misc', 
 		codepage = '65001',
 		formatfile = 'import-demo/customer.fmt', 
-		formatfile_data_source = 'dmstore1_misc'
+		formatfile_data_source = 'dmstore2_misc'
 	) as azureblob
 go
