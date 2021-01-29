@@ -3,9 +3,9 @@
 */
 
 /*
-drop database scoped credential [dmstore1_misc]
-go
-drop external data source [dmstore1_misc]
+drop external data source [dmstore2_misc]
+drop database scoped credential [dmstore2_misc]
+drop master key 
 go
 */
 
@@ -17,11 +17,11 @@ go
 create master key encryption by password = 'My-L0ng&Str0ng_P4ss0wrd!';
 go
 
--- Store the SAS Token (WITHOUT leadeing "?")
+-- Store the SAS Token (WITHOUT leading "?")
 -- It can be easily generated using Azure Storage Explorer or AZ CLI or Powershell or Portal
 create database scoped credential [dmstore2_misc]
 with identity = 'SHARED ACCESS SIGNATURE',
-secret = 'sv=2019-12-12&st=2021-01-28T21%3A51%3A25Z&se=2021-01-29T21%3A51%3A25Z&sr=c&sp=rl&sig=FsP21W4VzgJNCkrGrdicBhsjmeD7nwGZpzpJLlAoZ7A%3D';
+secret = '';
 go
 
 -- Create the data source
@@ -139,7 +139,7 @@ select top (100) * from [dbo].[customer]
 go
 
 -- Query data without importing
--- A formatfile is neede to provide required schema
+-- A formatfile is needed to provide required schema
 select 
 	*
 from 
