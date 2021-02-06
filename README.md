@@ -77,6 +77,8 @@ The easiest option, also with great performances. It [supports a variety of diff
 
 The [Copy Data](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-copy-data-tool) tool guides you through the entire process of importing data with an easy-to-follow, wizard-style, interface.
 
+This YouTube video shows the best pratices to load data as fast as possibile in Azure SQL via Azure Data Factory: [Best Practices Using Azure SQL as Sink in ADF](https://www.youtube.com/watch?v=p0CFHMtGVwM&list=PL3EZ3A8mHh0yrJwK_lnz9_J4cimw9ivYD&index=16)
+
 ### Apache Spark
 
 Apache Spark is another option if you need more flexibility. It can read from almost any data format, and it can efficiently write data into Azure SQL. Full end-to-end sample on how to import data as fast as possible here: [Fast Data Loading in Azure SQL DB using Azure Databricks](https://github.com/Azure-Samples/azure-sql-db-databricks/tree/main/)
